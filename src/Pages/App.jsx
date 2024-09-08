@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import "./App.css";
-import HomePage from "./Pages/HomePage";
+import Loader from "../components/Loader";
+import Teams from "../components/Teams";
 
 function App() {
   const [teams, setTeams] = useState([]);
@@ -45,8 +45,9 @@ function App() {
 
   return (
     <>
-      {/* {isLoading ? <Loader /> : <Teams teams={teams} />} */}
-      <HomePage isLoading={isLoading} teams={teams} />
+      <div className="bg-gray-800">
+        {isLoading ? <Loader /> : <Teams teams={teams} />}
+      </div>
     </>
   );
 }

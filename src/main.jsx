@@ -1,12 +1,31 @@
 import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App.jsx";
+import ReactDOM from "react-dom/client";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./index.css";
-import NavBar from "./components/NavBar.jsx";
+import Layout from "./pages/Layout";
+import NotFoundPage from "./Pages/NotFoundPage.jsx";
+import App from "./Pages/App.jsx";
+import TeamDetailsPage from "./Pages/TeamDetailsPage.jsx";
 
-createRoot(document.getElementById("root")).render(
+const router = createBrowserRouter([
+  {
+    element: <Layout />,
+    errorElement: <NotFoundPage />,
+    children: [
+      {
+        path: "/",
+        element: <App />,
+      },
+      {
+        path: "/teamDetails/:teamID",
+        element: <TeamDetailsPage />,
+      },
+    ],
+  },
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <NavBar />
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>
 );

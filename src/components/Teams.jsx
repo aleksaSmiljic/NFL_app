@@ -11,6 +11,8 @@ const Teams = ({ teams }) => {
             city={team.teamCity}
             logo={team.espnLogo1}
             key={team.teamID}
+            id={team.teamID}
+            team={team}
           />
         ))}
       </ul>
