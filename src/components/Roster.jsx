@@ -3,8 +3,8 @@ import PlayerListItem from "./PlayerListItem";
 
 const Roster = ({ roster }) => {
   return (
-    <div>
-      <ul>
+    <div className="flex justify-center">
+      <ul className="grid col-span-1">
         {roster.map((player) => (
           <PlayerListItem key={player.playerID} player={player} />
         ))}

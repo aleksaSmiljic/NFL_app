@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import useTeamStore from "../stores/teamStore";
 import Roster from "../components/Roster";
 import Loader from "../components/Loader";
+import TeamDetailsHeader from "../components/TeamDetailsHeader";
 
 const TeamDetailsPage = () => {
   const [roster, setRoster] = useState([]);
@@ -42,9 +43,18 @@ const TeamDetailsPage = () => {
       });
   };
 
+  const stats = `${team.wins}/${team.loss}/${team.tie}`;
+
   return (
     <div className="bg-gray-800">
-      <p>{team.teamName}</p>
+      <TeamDetailsHeader
+        teamCity={team.teamCity}
+        teamName={team.teamName}
+        teamLogo={team.espnLogo1}
+        conference={team.conferenceAbv}
+        stats={stats}
+        division={team.division}
+      />
       {isLoading ? <Loader /> : <Roster roster={roster} />}
     </div>
   );
