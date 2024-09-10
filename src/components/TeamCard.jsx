@@ -13,13 +13,13 @@ const TeamCard = ({ name, city, logo, id, team }) => {
 
   return (
     <div
-      className="rounded-lg bg-gradient-to-r from-red-500 via-white to-blue-600 m-3"
+      className="rounded-lg bg-gradient-to-b from-white m-3"
       onClick={handleTeamClick}
     >
       <div className="flex justify-center my-6">
         <img src={logo} alt="Team Logo" className="w-[200px] h-[200px]" />
       </div>
-      <p className="flex justify-center font-oswald font-medium text-3xl mb-6">
+      <p className="flex justify-center font-oswald font-medium text-3xl mb-6 text-white">
         {city} {name}
       </p>
     </div>

@@ -1,16 +1,22 @@
 /* eslint-disable react/prop-types */
 const PlayerListItem = ({ player }) => {
   return (
-    <div className="w-600px flex items-center">
-      <div className="w-20 h-20">
+    <tr className="border-b">
+      <td className="py-2 h-32 w-32 flex items-center mx-4">
         <img
-          src={player?.espnHeadshot}
-          alt="player photo"
-          className="object-contain"
+          src={player.espnHeadshot}
+          alt="Player photo"
+          className="object-contain mr-4"
         />
-      </div>
-      <p>{player.longName}</p>
-    </div>
+        <p className="whitespace-nowrap">{player.longName}</p>
+      </td>
+      <td className="py-2 px-4">{player.jerseyNum}</td>
+      <td className="py-2 px-4">{player.pos}</td>
+      <td className="py-2 px-4">{player.height}</td>
+      <td className="py-2 px-4">{player.weight}</td>
+      <td className="py-2 px-4">{player.exp}</td>
+      <td className="py-2 px-4">{player.school}</td>
+    </tr>
   );
 };
 

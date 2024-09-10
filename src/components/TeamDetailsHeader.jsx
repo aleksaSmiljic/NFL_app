@@ -11,7 +11,9 @@ const TeamDetailsHeader = ({
 }) => {
   return (
     <>
-      <div className={`w-full flex justify-evenly`}>
+      <div
+        className={`w-full flex justify-evenly bg-gradient-to-r from-[#111111]`}
+      >
         <div>
           <p className="text-5xl text-white font-oswald font-bold my-4">
             {teamCity} {teamName}
