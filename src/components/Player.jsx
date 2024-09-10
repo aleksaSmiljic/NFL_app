@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 const Player = ({ image, key }) => {
   return (
     <li key={key}>

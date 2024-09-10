@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+
 const TeamDetailsHeader = ({
   teamCity,
   teamName,
@@ -6,10 +7,11 @@ const TeamDetailsHeader = ({
   stats,
   conference,
   division,
+  setShowNews,
 }) => {
   return (
     <>
-      <div className="w-full flex justify-evenly">
+      <div className={`w-full flex justify-evenly`}>
         <div>
           <p className="text-5xl text-white font-oswald font-bold my-4">
             {teamCity} {teamName}
@@ -24,8 +26,18 @@ const TeamDetailsHeader = ({
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button className="w-[200px] h-10 border border-red-500">Roster</button>
-        <button className="w-[200px] h-10 border border-red-500">News</button>
+        <button
+          onClick={() => setShowNews(false)}
+          className={`w-[200px] h-10 border border-red-500`}
+        >
+          Roster
+        </button>
+        <button
+          onClick={() => setShowNews(true)}
+          className="w-[200px] h-10 border border-red-500"
+        >
+          News
+        </button>
       </div>
     </>
   );

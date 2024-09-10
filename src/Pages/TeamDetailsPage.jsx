@@ -5,15 +5,50 @@ import useTeamStore from "../stores/teamStore";
 import Roster from "../components/Roster";
 import Loader from "../components/Loader";
 import TeamDetailsHeader from "../components/TeamDetailsHeader";
+import TeamNews from "../components/TeamNews";
 
 const TeamDetailsPage = () => {
   const [roster, setRoster] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [showNews, setShowNews] = useState(false);
+  const [news, setNews] = useState([]);
   const { team } = useTeamStore();
 
   useEffect(() => {
     getTeam();
+    getTeamNews();
   }, []);
+
+  const getTeamNews = () => {
+    setIsLoading(true);
+    axios
+      .get(
+        `https://tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com/getNFLNews`,
+        {
+          headers: {
+            "x-rapidapi-key":
+              "52fef31e26msh25dec2f334931c2p1361b6jsn2629877b7a21",
+            "x-rapidapi-host":
+              "tank01-nfl-live-in-game-real-time-statistics-nfl.p.rapidapi.com",
+          },
+          params: {
+            teamID: `${team.teamID}`,
+            teamAbv: `${team.teamAbv}`,
+            fantasyNews: "false",
+            recentNews: "true",
+            maxItems: "12",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        setNews(response.data.body);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const getTeam = () => {
     setIsLoading(true);
@@ -54,8 +89,19 @@ const TeamDetailsPage = () => {
         conference={team.conferenceAbv}
         stats={stats}
         division={team.division}
+        setShowNews={setShowNews}
       />
-      {isLoading ? <Loader /> : <Roster roster={roster} />}
+      {isLoading ? (
+        <Loader />
+      ) : showNews ? (
+        <TeamNews
+          teamID={team.teamID}
+          setIsLoading={setIsLoading}
+          news={news}
+        />
+      ) : (
+        <Roster roster={roster} />
+      )}
     </div>
   );
 };
