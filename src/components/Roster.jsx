@@ -4,7 +4,7 @@ import PlayerListItem from "./PlayerListItem";
 const Roster = ({ roster }) => {
   return (
     <div className="flex justify-center">
-      <table className="min-w-[2000px] bg-white border border-gray-200">
+      <table className="w-full max-w-[2000px] bg-white border border-gray-200 m-10">
         <thead>
           <tr className="w-full bg-gray-100 border-b-2 border-gray-200">
             <th className="py-2 px-4 text-left">Player</th>

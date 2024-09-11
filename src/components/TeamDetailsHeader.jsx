@@ -8,6 +8,7 @@ const TeamDetailsHeader = ({
   conference,
   division,
   setShowNews,
+  showNews,
 }) => {
   return (
     <>
@@ -30,13 +31,17 @@ const TeamDetailsHeader = ({
       <div className="w-full flex justify-center">
         <button
           onClick={() => setShowNews(false)}
-          className={`w-[200px] h-10 border border-red-500`}
+          className={`w-[200px] h-10 border border-red-500 text-white ${
+            showNews ? "" : "bg-red-500"
+          }`}
         >
           Roster
         </button>
         <button
           onClick={() => setShowNews(true)}
-          className="w-[200px] h-10 border border-red-500"
+          className={`w-[200px] h-10 border border-red-500 text-white ${
+            showNews ? "bg-red-500" : ""
+          }`}
         >
           News
         </button>

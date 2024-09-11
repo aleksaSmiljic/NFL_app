@@ -90,6 +90,7 @@ const TeamDetailsPage = () => {
         stats={stats}
         division={team.division}
         setShowNews={setShowNews}
+        showNews={showNews}
       />
       {isLoading ? (
         <Loader />

@@ -2,7 +2,7 @@
 const PlayerListItem = ({ player }) => {
   return (
     <tr className="border-b">
-      <td className="py-2 h-32 w-32 flex items-center mx-4">
+      <td className="py-2 h-28 w-28 flex items-center mx-4">
         <img
           src={player.espnHeadshot}
           alt="Player photo"
