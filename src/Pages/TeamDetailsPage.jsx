@@ -13,6 +13,7 @@ const TeamDetailsPage = () => {
   const [showNews, setShowNews] = useState(false);
   const [news, setNews] = useState([]);
   const { team } = useTeamStore();
+  // const apiKey = import.meta.env.VITE_RAPID_NFL_API_KEY;
 
   useEffect(() => {
     getTeam();
